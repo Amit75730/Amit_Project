@@ -1,0 +1,49 @@
+# Ignore all environment configuration files
+*.env
+
+# Ignore appsettings.json files (contains secrets)
+**/appsettings.json
+config.json
+
+
+# Ignore bin and obj directories (compiled files)
+**/bin/
+**/obj/
+
+# Ignore log files
+*.log
+logs/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files and folders
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Angular build artifacts
+angular/dist/
+angular/out-tsc/
+angular/node_modules/
+
+# Ignore API build artifacts
+api/bin/
+api/obj/
+api/node_modules/
+
+# Ignore Console app build artifacts
+console/bin/
+console/obj/
+
+# Ignore package-lock.json (optional, if using yarn)
+**/package-lock.json
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak

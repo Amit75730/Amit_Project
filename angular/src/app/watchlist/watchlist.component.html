@@ -1,0 +1,81 @@
+<div class="container">
+    <h2>Watchlist</h2>
+
+    <!-- Container Search -->
+    <div class="search-container">
+        <input type="text" [(ngModel)]="containerNumber" placeholder="Enter container number" />
+        <button (click)="searchContainer()">Search</button>
+    </div>
+
+    <!-- Container Details if searched -->
+    <div *ngIf="containerDetails" class="container-details">
+        <div class="details-row">
+            <div class="details-column">
+                <p><strong>Container Number:</strong> {{ containerDetails.containerNumber }}</p>
+                <p><strong>Trade Type:</strong> {{ containerDetails.tradeType }}</p>
+                <p><strong>Status:</strong> {{ containerDetails.status }}</p>
+                <p><strong>Origin:</strong> {{ containerDetails.origin }}</p>
+                <p><strong>Vessel Code:</strong> {{ containerDetails.vesselCode }}</p>
+                <p><strong>Vessel Name:</strong> {{ containerDetails.vesselName }}</p>
+                <p><strong>Flight Number:</strong> {{ containerDetails.flightNumber }}</p>
+                <p><strong>Transaction Set Control Number:</strong> {{ containerDetails.transactionSetControlNumber }}
+                </p>
+            </div>
+        </div>
+        <button *ngIf="!isInWatchlist(containerDetails.containerNumber)" (click)="addToCart()">Add to Watchlist</button>
+        <button *ngIf="isInWatchlist(containerDetails.containerNumber)"
+            (click)="goToCart(containerDetails.containerNumber)">
+            Go to Cart
+        </button>
+        <button class="btn btn-secondary" (click)="navigateBack()">Back to Containers</button>
+    </div>
+
+    <!-- Watchlist Table -->
+    <h3>Containers Watchlist</h3>
+    <div *ngIf="watchlist.length > 0">
+        <table class="watchlist-table">
+            <thead>
+                <tr>
+                    <th>Container Number</th>
+                    <th>Trade Type</th>
+                    <th>Status</th>
+                    <th>Origin</th>
+                    <th>Vessel Code</th>
+                    <th>Vessel Name</th>
+                    <th>Flight Number</th>
+                    <th>Transaction Set Control Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let container of watchlist">
+                    <td>{{ container.containerNumber }}</td>
+                    <td>{{ container.tradeType }}</td>
+                    <td>{{ container.status }}</td>
+                    <td>{{ container.origin }}</td>
+                    <td>{{ container.vesselCode }}</td>
+                    <td>{{ container.vesselName }}</td>
+                    <td>{{ container.flightNumber }}</td>
+                    <td>{{ container.transactionSetControlNumber }}</td>
+                    <td>
+                        <button *ngIf="isInWatchlist(container.containerNumber)"
+                            (click)="goToCart(container.containerNumber)">
+                            Go to Cart
+                        </button>
+                        <button *ngIf="isInWatchlist(container.containerNumber)"
+                            (click)="removeFromWatchlist(container.containerNumber)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="watchlist.length === 0">
+        <p>No containers in the watchlist.</p>
+    </div>
+    <div class="back-to-list-container mt-3">
+        <button class="btn btn-primary" (click)="navigateBack()">Back to Containrs</button>
+    </div>
+</div>  

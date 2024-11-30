@@ -1,0 +1,51 @@
+<div class="container">
+    <h2>Container Details</h2>
+
+    <!-- Display container details if available -->
+    <div *ngIf="containerDetails; else loading">
+        <div class="container-info">
+            <p><strong>Container Number:</strong> {{ containerDetails.containerNumber }}</p>
+            <p><strong>Trade Type:</strong> {{ containerDetails.tradeType }}</p>
+            <p><strong>Status:</strong> {{ containerDetails.status }}</p>
+            <p><strong>Origin:</strong> {{ containerDetails.origin }}</p>
+            <p><strong>Vessel Code:</strong> {{ containerDetails.vesselCode }}</p>
+            <p><strong>Vessel Name:</strong> {{ containerDetails.vesselName }}</p>
+            <p><strong>Flight Number:</strong> {{ containerDetails.flightNumber }}</p>
+        </div>
+
+        <h3>Demurrage Fees</h3>
+        <div class="fees-info">
+            <p><strong>Fees Due:</strong> ${{ feesDue }}</p>
+            <p><strong>Fees Paid:</strong> ${{ feesPaid }}</p>
+        </div>
+
+        <!-- Payment box for fees -->
+        <div *ngIf="showPaymentBox" class="payment-box">
+            <h4>Pay Demurrage Fees</h4>
+            <label for="paymentAmount">Enter Payment Amount:</label>
+            <input type="number" id="paymentAmount" [(ngModel)]="paymentAmount" min="0" max="{{ feesDue }}"
+                placeholder="Enter amount" />
+            <button (click)="payFees()">Pay</button>
+            <button (click)="showPaymentBox = false">Cancel</button>
+        </div>
+
+        <!-- Button to open the payment box -->
+        <button *ngIf="!showPaymentBox" (click)="openPaymentBox()" class="btn btn-primary">Pay Demurrage Fees</button>
+
+    </div>
+
+    <!-- Error message for any issues -->
+    <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+    </div>
+
+    <!-- Loading state when data is being fetched -->
+    <ng-template #loading>
+        <p>Loading container details...</p>
+    </ng-template>
+
+    <!-- Back to Watchlist button -->
+    <div class="back-button">
+        <button (click)="goBack()">Back to Watchlist</button>
+    </div>
+</div>

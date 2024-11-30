@@ -1,0 +1,156 @@
+/* General container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #444;
+    margin-top: 20px;
+}
+
+h4 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Container info styling */
+.container-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.container-info strong {
+    color: #333;
+}
+
+/* Fees info styling */
+.fees-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.fees-info strong {
+    color: #333;
+}
+
+/* Payment box styling */
+.payment-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.payment-box input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.payment-box button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-box button:hover {
+    background-color: #0056b3;
+}
+
+.payment-box button:nth-child(2) {
+    background-color: #6c757d;
+}
+
+.payment-box button:nth-child(2):hover {
+    background-color: #5a6268;
+}
+
+/* Error message styling */
+.error-message {
+    color: #d9534f;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Loading message styling */
+#loading {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Back button styling */
+.back-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    background-color: #5a6268;
+}
+
+.btn-primary {
+    cursor: pointer;
+}
+
+/* Responsive design */
+/* @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .container-info p,
+    .fees-info p {
+        font-size: 14px;
+    }
+
+    .payment-box input {
+        width: 100%;
+    }
+
+    .back-button button {
+        font-size: 14px;
+    }
+} */

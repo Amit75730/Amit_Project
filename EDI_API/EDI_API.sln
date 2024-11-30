@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDI_API", "EDI_API.csproj", "{31132A9C-AEB3-48DF-B51E-E6EE6613CB6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31132A9C-AEB3-48DF-B51E-E6EE6613CB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31132A9C-AEB3-48DF-B51E-E6EE6613CB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31132A9C-AEB3-48DF-B51E-E6EE6613CB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31132A9C-AEB3-48DF-B51E-E6EE6613CB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD2168A9-6CE4-4AC9-B847-EA98D6572363}
+	EndGlobalSection
+EndGlobal

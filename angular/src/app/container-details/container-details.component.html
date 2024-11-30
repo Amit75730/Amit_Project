@@ -1,0 +1,142 @@
+<div class="header">
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </div>
+  <div class="container">
+    <!-- Create New Field Button -->
+    <div class="mt-3">
+      <!-- <button routerLink="/create" class="btn btn-success">Create Container</button> -->
+      <button (click)="addToWatchlist()" class="btn btn-success">Add to Container</button>
+    </div>
+  
+  
+    <!-- Create New Field Form -->
+    <!-- <div *ngIf="!selectedField && isCreatePage" class="card mt-3"> -->
+    <!-- <h3>Create New Container</h3>
+      <form [formGroup]="newFieldForm" (ngSubmit)="createRequiredField()">
+        <div class="form-group">
+          <label for="containerNumber">Container Number</label>
+          <input type="text" id="containerNumber" formControlName="containerNumber" class="form-control" required />
+          <div *ngIf="newFieldForm.get('containerNumber')?.invalid && newFieldForm.get('containerNumber')?.touched">
+            <small *ngIf="newFieldForm.get('containerNumber')?.invalid && newFieldForm.get('containerNumber')?.touched">
+              <small *ngIf="newFieldForm.get('containerNumber')?.hasError('required')">Container Number is
+                required.</small>
+              <small *ngIf="newFieldForm.get('containerNumber')?.hasError('pattern')">Container Number must be in the
+                format: 4 letters followed by 7 digits.</small>
+            </small>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="tradeType">Trade Type</label>
+          <select id="tradeType" formControlName="tradeType" class="form-control" required>
+            <option value="">Select Trade Type</option>
+            <option *ngFor="let type of tradeTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" formControlName="status" class="form-control" required>
+            <option value="">Select Status</option>
+            <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="origin">Origin</label>
+          <select id="origin" formControlName="origin" class="form-control" required>
+            <option value="">Select Origin</option>
+            <option *ngFor="let origin of origins" [value]="origin">{{ origin }}</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="vesselCode">Vessel Code</label>
+          <input type="number" id="vesselCode" formControlName="vesselCode" class="form-control" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="vesselName">Vessel Name</label>
+          <input type="text" id="vesselName" formControlName="vesselName" class="form-control" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="flightNumber">Flight Number</label>
+          <input type="text" id="flightNumber" formControlName="flightNumber" class="form-control" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="transactionSetControlNumber">Transaction Set Control Number</label>
+          <input type="number" id="transactionSetControlNumber" formControlName="transactionSetControlNumber"
+            class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="demurrage_fees">Demurrage Fees</label>
+          <input type="number" id="demurrage_fees" formControlName="demurrage_fees" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="newFieldForm.invalid">Create</button>
+        <button class="btn btn-primary" routerLink="/">Back to Containers</button>
+      </form> -->
+  
+    <!-- </div> -->
+  
+    <!-- Field Details -->
+    <!-- <div *ngIf="selectedField && !isCreatePage" class="card mt-3">
+      <h3>Container Details</h3>
+      <p><strong>Container Number:</strong> {{ selectedField.containerNumber }}</p>
+      <p><strong>Trade Type:</strong> {{ selectedField.tradeType }}</p>
+      <p><strong>Status:</strong> {{ selectedField.status }}</p>
+      <p><strong>Origin:</strong> {{ selectedField.origin }}</p>
+      <p><strong>Vessel Code:</strong> {{ selectedField.vesselCode }}</p>
+      <p><strong>Vessel Name:</strong> {{ selectedField.vesselName }}</p>
+      <p><strong>Flight Number:</strong> {{ selectedField.flightNumber }}</p>
+      <p><strong>Transaction Set Control Number:</strong> {{ selectedField.transactionSetControlNumber }}</p>
+      <button class="btn btn-primary" routerLink="/">Back to Containers</button>
+    </div> -->
+  
+  
+    <!-- List of Fields -->
+    <div class="card mt-4">
+      <h3>Containers</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Container Number</th>
+            <th>Trade Type</th>
+            <th>Status</th>
+            <th>Origin</th>
+            <th>Vessel Code</th>
+            <th>Vessel Name</th>
+            <th>Flight Number</th>
+            <th>Transaction Set Control Number</th>
+            <th>Actions</th>
+            <th>Fees</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let field of containerdetails">
+            <td>{{ field.containerNumber }}</td>
+            <td>{{ field.tradeType }}</td>
+            <td>{{ field.status }}</td>
+            <td>{{ field.origin }}</td>
+            <td>{{ field.vesselCode }}</td>
+            <td>{{ field.vesselName }}</td>
+            <td>{{ field.flightNumber }}</td>
+            <td>{{ field.transactionSetControlNumber }}</td>
+            <td>
+              <!-- <button (click)="viewRequiredField(field.containerNumber)" class="btn btn-info">
+                View
+              </button> -->
+              <button (click)="deleteRequiredField(field.containerNumber)" class="btn btn-danger">
+                Remove
+              </button>
+            </td>
+            <td
+              [ngClass]="{'pending': getDemurrageStatus(field.demurrage_fees) === 'Pending', 'completed': getDemurrageStatus(field.demurrage_fees) === 'Completed'}">
+              {{ getDemurrageStatus(field.demurrage_fees) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
